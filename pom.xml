@@ -18,6 +18,28 @@
 
     <build>
         <plugins>
+            <!-- mvn javadoc:javadoc 等を使う場合の設定 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.4.1</version>
+                <configuration>
+                    <author>true</author>
+                    <source>${java.version}</source>
+                    <encoding>UTF-8</encoding>
+                    <docencoding>UTF-8</docencoding>
+                    <charset>UTF-8</charset>
+                    <bottom><![CDATA[<p class="legalCopy"><small>Copyright &#169; 2024. <a href="https://monster2408.com">Monster2408</a>.</small></p>]]></bottom>
+                    <header><![CDATA[<a href="https://docs.monster2408.com"><i class="fa-solid fa-house-chimney"></i>HOME</a>]]></header>
+                    <top><![CDATA[
+                        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+                        <link href="https://use.fontawesome.com/releases/v6.0.0/css/all.css" rel="stylesheet">
+                        <script src="https://kit.fontawesome.com/159d32b7b7.js" crossorigin="anonymous"></script>
+                    ]]></top>
+                    <additionalJOptions>--allow-script-in-comments</additionalJOptions>
+                    <stylesheetfile>${basedir}/src/main/resources/javadoc/stylesheet.css</stylesheetfile>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
