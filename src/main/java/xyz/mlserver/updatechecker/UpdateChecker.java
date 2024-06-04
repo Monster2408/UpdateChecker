@@ -32,9 +32,9 @@ public final class UpdateChecker {
     }
 
     /**
-     * spigot update checker
-     * @param plugin JavaPlugin
-     * @param resourceId spigot resource id
+     * update checker for spigot plugins
+     * @param plugin the plugin
+     * @param resourceId the resource id of the plugin
      */
     public UpdateChecker(JavaPlugin plugin, Integer resourceId) {
         this.plugin = plugin;
