@@ -33,7 +33,7 @@ public final class GitHubUpdateChecker {
     }
 
     /**
-     * github update checker
+     * update checker for github plugins
      * @param plugin JavaPlugin
      * @param author github author name
      * @param repository github repository name
