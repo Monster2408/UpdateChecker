@@ -9,8 +9,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 
-@Deprecated
-public final class UpdateChecker {
+public final class SpigotUpdateChecker {
 
     private final JavaPlugin plugin;
     private URL checkURL;
@@ -36,7 +35,7 @@ public final class UpdateChecker {
      * @param plugin JavaPlugin
      * @param resourceId spigot resource id
      */
-    public UpdateChecker(JavaPlugin plugin, Integer resourceId) {
+    public SpigotUpdateChecker(JavaPlugin plugin, Integer resourceId) {
         this.plugin = plugin;
         this.currentVersion = regex(this.plugin.getDescription().getVersion());
 
@@ -51,7 +50,7 @@ public final class UpdateChecker {
     }
 
     private void run() {
-        URLConnection con = null;
+        URLConnection con;
         try {
             con = checkURL.openConnection();
         } catch (IOException e1) {
@@ -81,10 +80,18 @@ public final class UpdateChecker {
 
     }
 
+    /**
+     * get update result
+     * @return UpdateResult
+     */
     public UpdateResult getResult() {
         return this.result;
     }
 
+    /**
+     * get version
+     * @return version
+     */
     public String getVersion() {
         return regex(this.availableVersion);
     }
@@ -93,50 +100,98 @@ public final class UpdateChecker {
         return version.replaceAll("[^0-9.]", "");
     }
 
+    /**
+     * get free download link
+     * @return free download link
+     */
     public String getFreeDownloadLink() {
         return freeDownloadLink;
     }
 
+    /**
+     * get premium download link
+     * @return premium download link
+     */
     public String getPlusDownloadLink() {
         return plusDownloadLink;
     }
 
+    /**
+     * get available version
+     * @return available version
+     */
     public String getAvailableVersion() {
         return availableVersion;
     }
 
+    /**
+     * get current version
+     * @return current version
+     */
     public String getCurrentVersion() {
         return currentVersion;
     }
 
+    /**
+     * get plugin
+     * @return JavaPlugin
+     */
     public JavaPlugin getPlugin() {
         return plugin;
     }
 
+    /**
+     * is send op message
+     * @return boolean
+     */
     public boolean isSendOpMessage() {
         return sendOpMessage;
     }
 
+    /**
+     * get donation link
+     * @return donation link
+     */
     public String getDonationLink() {
         return donationLink;
     }
 
-    public UpdateChecker setFreeDownloadLink(String freeDownloadLink) {
+    /**
+     * set free download link
+     * @param freeDownloadLink free download link
+     * @return SpigotUpdateChecker
+     */
+    public SpigotUpdateChecker setFreeDownloadLink(String freeDownloadLink) {
         this.freeDownloadLink = freeDownloadLink;
         return this;
     }
 
-    public UpdateChecker setPlusDownloadLink(String plusDownloadLink) {
+    /**
+     * set premium download link
+     * @param plusDownloadLink premium download link
+     * @return SpigotUpdateChecker
+     */
+    public SpigotUpdateChecker setPlusDownloadLink(String plusDownloadLink) {
         this.plusDownloadLink = plusDownloadLink;
         return this;
     }
 
-    public UpdateChecker setSendOpMessage(boolean sendOpMessage) {
+    /**
+     * set send op message
+     * @param sendOpMessage send op message
+     * @return SpigotUpdateChecker
+     */
+    public SpigotUpdateChecker setSendOpMessage(boolean sendOpMessage) {
         this.sendOpMessage = sendOpMessage;
         return this;
     }
 
-    public UpdateChecker setDonationLink(String donationLink) {
+    /**
+     * set donation link
+     * @param donationLink donation link
+     * @return SpigotUpdateChecker
+     */
+    public SpigotUpdateChecker setDonationLink(String donationLink) {
         this.donationLink = donationLink;
         return this;
     }
